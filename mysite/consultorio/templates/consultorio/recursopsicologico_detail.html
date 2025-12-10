@@ -1,0 +1,11 @@
+{% extends "consultorio/base.html" %}
+
+{% block title %}Detalle del Recurso{% endblock %}
+
+{% block content %}
+<h1>{{ object.titulo }}</h1>
+<p><strong>Descripción:</strong> {{ object.descripcion|linebreaks }}</p>
+<p><strong>Enlace:</strong> <a href="{{ object.enlace }}" target="_blank">{{ object.enlace }}</a></p>
+<p><strong>Tipo de Recurso:</strong> {{ object.tipo_recurso }}</p>
+<a href="{% url 'consultorio:recursopsicologico_list' %}">Volver a la lista</a>
+{% endblock %}

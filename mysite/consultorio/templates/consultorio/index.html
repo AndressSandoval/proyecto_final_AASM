@@ -1,0 +1,26 @@
+{% extends "consultorio/base.html" %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Bienvenido al Sistema de Gestión de Pacientes</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Este sistema le permite administrar la información de los pacientes de su consultorio psicológico de manera eficiente y segura.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="list-group">
+                <a href="{% url 'consultorio:diagnostico_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Diagnósticos</a>
+                <a href="{% url 'consultorio:facturapsicologia_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Facturas</a>
+                <a href="{% url 'consultorio:historialclinicopsicologia_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Historiales Clínicos</a>
+                <a href="{% url 'consultorio:paciente_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Pacientes</a>
+                <a href="{% url 'consultorio:psicologo_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Psicólogos</a>
+                <a href="{% url 'consultorio:recursopsicologico_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Recursos Psicológicos</a>
+                <a href="{% url 'consultorio:sesion_list' %}" class="list-group-item list-group-item-action">Acceder a la tabla de Sesiones</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

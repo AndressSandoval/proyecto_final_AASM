@@ -1,0 +1,20 @@
+{% extends 'consultorio/base.html' %}
+
+{% block title %}Detalles del Paciente{% endblock %}
+
+{% block content %}
+    <h2>Detalles del Paciente</h2>
+    <p><strong>Nombre:</strong> {{ pacientepsicologia.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ pacientepsicologia.apellido }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ pacientepsicologia.fecha_nacimiento }}</p>
+    <p><strong>Género:</strong> {{ pacientepsicologia.genero }}</p>
+    <p><strong>Dirección:</strong> {{ pacientepsicologia.direccion }}</p>
+    <p><strong>Teléfono:</strong> {{ pacientepsicologia.telefono }}</p>
+    <p><strong>Email:</strong> {{ pacientepsicologia.email }}</p>
+    <p><strong>Profesión:</strong> {{ pacientepsicologia.profesion }}</p>
+    <p><strong>Fecha de Registro:</strong> {{ pacientepsicologia.fecha_registro }}</p>
+    <p><strong>Motivo de Consulta Inicial:</strong> {{ pacientepsicologia.motivo_consulta_inicial }}</p>
+    <a href="{% url 'consultorio:paciente_update' pacientepsicologia.pk %}" class="btn btn-secondary">Editar</a>
+    <a href="{% url 'consultorio:paciente_delete' pacientepsicologia.pk %}" class="btn btn-danger">Eliminar</a>
+    <a href="{% url 'consultorio:paciente_list' %}" class="btn btn-primary">Volver a la Lista</a>
+{% endblock %}

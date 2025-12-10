@@ -1,0 +1,24 @@
+{% extends "consultorio/base.html" %}
+
+{% block title %}
+{% if form.instance.pk %}
+Editar Historial Clínico
+{% else %}
+Agregar Historial Clínico
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>
+    {% if form.instance.pk %}
+    Editar Historial Clínico
+    {% else %}
+    Agregar Historial Clínico
+    {% endif %}
+</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'consultorio/base.html' %}
+
+{% block title %}Lista de Historiales Clínicos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Historiales Clínicos</h2>
+    <a href="{% url 'consultorio:historialclinicopsicologia_create' %}" class="btn btn-primary mb-3">Agregar Historial</a>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Historial</th>
+                    <th>Paciente</th>
+                    <th>Psicólogo Tratante</th>
+                    <th>Última Actualización</th>
+                    <th>Antecedentes Familiares</th>
+                    <th>Antecedentes Personales</th>
+                    <th>Medicamentos Actuales</th>
+                    <th>Resumen Evolución</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for historial in historialclinicopsicologia_list %}
+                    <tr>
+                        <td><a href="{% url 'consultorio:historialclinicopsicologia_detail' historial.pk %}">{{ historial.id_historial }}</a></td>
+                        <td>{{ historial.id_paciente }}</td>
+                        <td>{{ historial.id_psicologo_tratante }}</td>
+                        <td>{{ historial.fecha_actualizacion }}</td>
+                        <td>{{ historial.antecedentes_familiares|truncatechars:30 }}</td>
+                        <td>{{ historial.antecedentes_personales|truncatechars:30 }}</td>
+                        <td>{{ historial.medicamentos_actuales|truncatechars:30 }}</td>
+                        <td>{{ historial.resumen_evolucion|truncatechars:30 }}</td>
+                        <td>
+                            <a href="{% url 'consultorio:historialclinicopsicologia_update' historial.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="{% url 'consultorio:historialclinicopsicologia_delete' historial.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center">No hay historiales clínicos registrados.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

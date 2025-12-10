@@ -1,0 +1,49 @@
+{% extends 'consultorio/base.html' %}
+
+{% block title %}Lista de Facturas{% endblock %}
+
+{% block content %}
+    <h2>Lista de Facturas</h2>
+    <a href="{% url 'consultorio:facturapsicologia_create' %}" class="btn btn-primary mb-3">Agregar Factura</a>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID Factura</th>
+                    <th>Paciente</th>
+                    <th>F. Emisión</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Método de Pago</th>
+                    <th>F. Vencimiento</th>
+                    <th>Sesión Asociada</th>
+                    <th>Descuento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for factura in facturapsicologia_list %}
+                    <tr>
+                        <td><a href="{% url 'consultorio:facturapsicologia_detail' factura.pk %}">{{ factura.id_factura }}</a></td>
+                        <td>{{ factura.id_paciente }}</td>
+                        <td>{{ factura.fecha_emision }}</td>
+                        <td>{{ factura.total_factura }}</td>
+                        <td>{{ factura.estado_pago }}</td>
+                        <td>{{ factura.metodo_pago }}</td>
+                        <td>{{ factura.fecha_vencimiento }}</td>
+                        <td>{{ factura.id_sesion_asociada }}</td>
+                        <td>{{ factura.descuento_aplicado }}</td>
+                        <td>
+                            <a href="{% url 'consultorio:facturapsicologia_update' factura.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="{% url 'consultorio:facturapsicologia_delete' factura.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="10" class="text-center">No hay facturas registradas.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

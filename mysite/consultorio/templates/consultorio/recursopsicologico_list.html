@@ -1,0 +1,47 @@
+{% extends 'consultorio/base.html' %}
+
+{% block title %}Lista de Recursos Psicológicos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Recursos Psicológicos</h2>
+    <a href="{% url 'consultorio:recursopsicologico_create' %}" class="btn btn-primary mb-3">Agregar Recurso</a>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                    <th>Autor</th>
+                    <th>F. Publicación</th>
+                    <th>URL</th>
+                    <th>Tema Principal</th>
+                    <th>Público Objetivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recurso in recursopsicologico_list %}
+                    <tr>
+                        <td><a href="{% url 'consultorio:recursopsicologico_detail' recurso.pk %}">{{ recurso.nombre_recurso }}</a></td>
+                        <td>{{ recurso.tipo_recurso }}</td>
+                        <td>{{ recurso.descripcion|truncatechars:30 }}</td>
+                        <td>{{ recurso.autor }}</td>
+                        <td>{{ recurso.fecha_publicacion }}</td>
+                        <td><a href="{{ recurso.url_recurso }}" target="_blank">{{ recurso.url_recurso|truncatechars:20 }}</a></td>
+                        <td>{{ recurso.tema_principal }}</td>
+                        <td>{{ recurso.publico_objetivo }}</td>
+                        <td>
+                            <a href="{% url 'consultorio:recursopsicologico_update' recurso.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+                            <a href="{% url 'consultorio:recursopsicologico_delete' recurso.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center">No hay recursos psicológicos registrados.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

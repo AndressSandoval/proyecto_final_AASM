@@ -1,0 +1,12 @@
+{% extends "consultorio/base.html" %}
+
+{% block title %}Detalle de la Factura{% endblock %}
+
+{% block content %}
+<h1>Factura #{{ object.pk }}</h1>
+<p><strong>Sesión:</strong> {{ object.sesion }}</p>
+<p><strong>Monto:</strong> {{ object.monto }}</p>
+<p><strong>Fecha de Emisión:</strong> {{ object.fecha_emision }}</p>
+<p><strong>Pagada:</strong> {{ object.pagada|yesno:"Sí,No" }}</p>
+<a href="{% url 'consultorio:facturapsicologia_list' %}">Volver a la lista</a>
+{% endblock %}

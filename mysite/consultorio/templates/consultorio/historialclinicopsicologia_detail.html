@@ -1,0 +1,10 @@
+{% extends "consultorio/base.html" %}
+
+{% block title %}Detalle del Historial Clínico{% endblock %}
+
+{% block content %}
+<h1>Historial de {{ object.paciente }}</h1>
+<p><strong>Fecha de Creación:</strong> {{ object.fecha_creacion }}</p>
+<p><strong>Descripción:</strong> {{ object.descripcion|linebreaks }}</p>
+<a href="{% url 'consultorio:historialclinicopsicologia_list' %}">Volver a la lista</a>
+{% endblock %}
