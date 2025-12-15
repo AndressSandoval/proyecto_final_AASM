@@ -1,5 +1,5 @@
 # Proyecto Final AASM
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/768a2ad6-4106-4411-a78c-3850ea2a858b" />
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a0450f4d-6b63-43b9-a098-7ef78ebfef31" />
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/1899ae4c-d80a-463b-a6e0-137309258049" />
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6fc8f9ef-bb83-4c9e-adf7-9e4fe57112f4" />
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6997bf86-28d5-4e79-aacf-88e5fdc698e7" />
